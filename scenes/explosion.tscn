@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 1, 0.207843, 0.207843, 1 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.0189873, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 5 )
+
+[sub_resource type="QuadMesh" id=3]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+material_override = SubResource( 1 )
+amount = 200
+randomness = 1.0
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )

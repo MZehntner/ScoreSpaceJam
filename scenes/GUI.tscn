@@ -1,0 +1,226 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/GUI.gd" type="Script" id=1]
+[ext_resource path="res://fonts/tricks/TricksHollow.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Rainbow.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/AusweisHollow.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://fonts/Iron.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://fonts/tricks/TricksHollow-Italic.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 26
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 18
+font_data = ExtResource( 6 )
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 113.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score: 0"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Streak" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -200.0
+margin_top = 25.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Streak
+"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -200.0
+margin_right = 150.0
+margin_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GameOver"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -112.5
+margin_top = 20.0
+margin_right = 112.5
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 3 )
+text = "GameOver"
+
+[node name="Label2" type="Label" parent="GameOver"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -104.5
+margin_top = 100.0
+margin_right = 104.5
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 4 )
+text = "Your score was:
+1234"
+align = 1
+
+[node name="Control" type="Control" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -250.0
+margin_right = 100.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="GameOver/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -37.0
+margin_right = 80.0
+margin_bottom = -13.0
+max_length = 16
+
+[node name="Label" type="Label" parent="GameOver/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -52.5
+margin_top = 25.0
+margin_right = 52.5
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 5 )
+text = "Nickname:"
+
+[node name="Button" type="Button" parent="GameOver/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -105.0
+margin_right = 80.0
+margin_bottom = -75.0
+
+[node name="Label" type="Label" parent="GameOver/Control/Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -67.5
+margin_top = -10.0
+margin_right = 67.5
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 6 )
+text = "Submit Score"
+
+[node name="notify" type="Label" parent="GameOver/Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -45.0
+margin_right = 100.0
+margin_bottom = -25.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Error"
+align = 1
+
+[node name="Button" type="Button" parent="GameOver"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = -60.0
+margin_right = 120.0
+margin_bottom = -30.0
+
+[node name="Label" type="Label" parent="GameOver/Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -26.5
+margin_top = -9.5
+margin_right = 26.5
+margin_bottom = 9.5
+custom_fonts/font = SubResource( 7 )
+text = "Retry"
+align = 1
+
+[node name="Button2" type="Button" parent="GameOver"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = -60.0
+margin_right = -30.0
+margin_bottom = -30.0
+
+[node name="Label" type="Label" parent="GameOver/Button2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -26.5
+margin_top = -9.5
+margin_right = 26.5
+margin_bottom = 9.5
+custom_fonts/font = SubResource( 7 )
+text = "Quit"
+align = 1
