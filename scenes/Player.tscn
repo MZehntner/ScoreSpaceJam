@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/bodyTilt.gd" type="Script" id=2]
 [ext_resource path="res://scripts/playerStatus.gd" type="Script" id=3]
 [ext_resource path="res://material/white.tres" type="Material" id=4]
-[ext_resource path="res://Models/Car/Car.fbx" type="PackedScene" id=5]
+[ext_resource path="res://Models/Car/CarTextured.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SphereMesh" id=1]
 radius = 60.0
@@ -28,30 +28,6 @@ resource_name = "bounce"
 length = 0.5
 loop = true
 step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Car/Cube2:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 100, 100, 100 ), Vector3( 100, 100, 110 ), Vector3( 100, 100, 100 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Car/Cube2:translation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 2.83817 ), Vector3( 0, 0.2, 2.838 ), Vector3( 0, 0, 2.83817 ) ]
-}
 
 [sub_resource type="CylinderMesh" id=7]
 top_radius = 0.4
@@ -91,24 +67,6 @@ material/0 = SubResource( 5 )
 
 [node name="Car" parent="helper_z/helper_x/bodyhelper/body" instance=ExtResource( 5 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
-
-[node name="Light" parent="helper_z/helper_x/bodyhelper/body/Car" index="0"]
-visible = false
-
-[node name="Camera" parent="helper_z/helper_x/bodyhelper/body/Car" index="1"]
-visible = false
-
-[node name="Empty" parent="helper_z/helper_x/bodyhelper/body/Car" index="2"]
-visible = false
-
-[node name="Empty001" parent="helper_z/helper_x/bodyhelper/body/Car" index="3"]
-visible = false
-
-[node name="Empty002" parent="helper_z/helper_x/bodyhelper/body/Car" index="4"]
-visible = false
-
-[node name="Cube2" parent="helper_z/helper_x/bodyhelper/body/Car" index="5"]
-transform = Transform( 100, 0, 0, 0, -4.37114e-06, 103.425, 0, -100, -4.52083e-06, 0, 0.0684915, 2.83811 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="helper_z/helper_x/bodyhelper/body"]
 autoplay = "bounce"
