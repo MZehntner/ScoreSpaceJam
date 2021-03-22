@@ -10,7 +10,7 @@ radial_segments = 256
 rings = 128
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.494118, 0.917647, 0.278431, 1 )
+albedo_color = Color( 0.415686, 0.709804, 0.25098, 1 )
 
 [sub_resource type="SphereShape" id=4]
 margin = 0.4
