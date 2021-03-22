@@ -100,7 +100,6 @@ margin_top = -18.5
 margin_right = 130.0
 margin_bottom = 18.5
 custom_fonts/font = SubResource( 1 )
-disabled = true
 text = "LeaderBoard"
 __meta__ = {
 "_edit_use_anchors_": false
