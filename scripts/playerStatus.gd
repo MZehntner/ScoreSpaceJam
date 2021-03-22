@@ -6,6 +6,7 @@ var color := "WHITE"
 export var default_color: Material
 
 signal puzzle_collected(changed)
+signal rocket()
 
 func on_puzzle_collect(p_color: String, material: Material) -> void:
 	if(p_color != color):
@@ -21,3 +22,9 @@ func _set_material(material: Material) -> void:
 func set_default_color():
 	color = "WHITE"
 	mesh.set_surface_material(0,default_color)
+
+func on_oil_barrel():
+	get_parent().get_node("Camera/AnimationPlayer").play("oil")
+
+func on_rocket():
+	emit_signal("rocket")

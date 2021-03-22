@@ -17,5 +17,6 @@ roughness = 0.3
 [node name="Oil_Barrel" instance=ExtResource( 2 )]
 
 [node name="Cylinder2" parent="." index="0"]
+transform = Transform( 30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 1.57631, 0 )
 material/0 = SubResource( 1 )
 material/1 = SubResource( 2 )
