@@ -13,6 +13,8 @@ func _on_start_pressed():
 func _on_Back_pressed():
 	$Leaderboard.visible = false
 	$main.visible = true
+	$Label.visible = true
+	$Label2.visible = true
 
 
 func _on_quit_pressed():
@@ -22,6 +24,8 @@ func _on_quit_pressed():
 func _on_leaderboard_pressed():
 	$Leaderboard.visible = true
 	$main.visible = false
+	$Label.visible = false
+	$Label2.visible = false
 	get_highscores()
 
 func get_highscores() -> void:

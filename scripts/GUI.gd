@@ -12,6 +12,8 @@ onready var nickname := $GameOver/Control/LineEdit
 onready var notify := $GameOver/Control/notify
 onready var http := $GameOver/Control/HTTPRequest
 
+onready var speed_anim := $AnimationPlayer
+
 func set_score(num: int):
 	score_label.text = "Score: %s" % num
 
@@ -23,6 +25,8 @@ func show_gameOver(score: int):
 	$GameOver/Label2.text = "Your score was:\n %s" % final_score
 	gameOver.visible = true
 
+func speedup():
+	speed_anim.play("speed")
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://scenes/Level.tscn")
@@ -50,7 +54,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		notify.text = "Error! Maybe retry."
 	else:
 		notify.add_color_override("font_color", Color.green)
-		notify.text = "Succes!"
+		notify.text = "Success!"
 
 
 func _on_Quit_pressed():

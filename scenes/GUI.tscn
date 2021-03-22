@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/GUI.gd" type="Script" id=1]
 [ext_resource path="res://fonts/tricks/TricksHollow.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://fonts/AusweisHollow.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://fonts/Iron.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://fonts/tricks/TricksHollow-Italic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://fonts/SLASHED.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -17,24 +18,56 @@ size = 36
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 36
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 24
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 26
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 18
 font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "speed"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -72,6 +105,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -20.0
+margin_right = 125.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 0.5, 0.5 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+text = "SPEEDUP"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameOver" type="Panel" parent="."]
 visible = false
 self_modulate = Color( 1, 1, 1, 0.784314 )
@@ -96,7 +152,7 @@ margin_left = -112.5
 margin_top = 20.0
 margin_right = 112.5
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "GameOver"
 
 [node name="Label2" type="Label" parent="GameOver"]
@@ -106,7 +162,7 @@ margin_left = -104.5
 margin_top = 100.0
 margin_right = 104.5
 margin_bottom = 43.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Your score was:
 1234"
 align = 1
@@ -142,7 +198,7 @@ margin_left = -52.5
 margin_top = 25.0
 margin_right = 52.5
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Nickname:"
 
 [node name="Button" type="Button" parent="GameOver/Control"]
@@ -154,6 +210,7 @@ margin_left = -80.0
 margin_top = -105.0
 margin_right = 80.0
 margin_bottom = -75.0
+disabled = true
 
 [node name="Label" type="Label" parent="GameOver/Control/Button"]
 anchor_left = 0.5
@@ -164,7 +221,7 @@ margin_left = -67.5
 margin_top = -10.0
 margin_right = 67.5
 margin_bottom = 10.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Submit Score"
 
 [node name="notify" type="Label" parent="GameOver/Control"]
@@ -201,7 +258,7 @@ margin_left = -26.5
 margin_top = -9.5
 margin_right = 26.5
 margin_bottom = 9.5
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Retry"
 align = 1
 
@@ -224,9 +281,12 @@ margin_left = -26.5
 margin_top = -9.5
 margin_right = 26.5
 margin_bottom = 9.5
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Quit"
 align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/speed = SubResource( 9 )
 [connection signal="pressed" from="GameOver/Control/Button" to="." method="_on_submit_pressed"]
 [connection signal="request_completed" from="GameOver/Control/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="GameOver/Button" to="." method="_on_Button_pressed"]
