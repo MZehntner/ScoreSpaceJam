@@ -19,7 +19,8 @@ func _process(delta):
 	time += delta
 	if time > spawn_interval:
 		time -= spawn_interval
-		_spawn_puzzle()
+		if(body != null):
+			_spawn_puzzle()
 	
 
 func _ready() -> void:
