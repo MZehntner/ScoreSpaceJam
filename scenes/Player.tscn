@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/bodyTilt.gd" type="Script" id=2]
 [ext_resource path="res://scripts/playerStatus.gd" type="Script" id=3]
-[ext_resource path="res://material/white.tres" type="Material" id=4]
+[ext_resource path="res://Models/Car/CarTextured.material" type="Material" id=4]
 [ext_resource path="res://Models/Car/CarTextured.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SphereMesh" id=1]
@@ -28,6 +28,30 @@ resource_name = "bounce"
 length = 0.5
 loop = true
 step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Car/Cube2:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 100, 100, 100 ), Vector3( 100, 100, 110 ), Vector3( 100, 100, 100 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Car/Cube2:translation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 2.5 ), Vector3( 0, 0.4, 2.5 ), Vector3( 0, 0, 2.5 ) ]
+}
 
 [sub_resource type="CylinderMesh" id=7]
 top_radius = 0.4
@@ -68,6 +92,9 @@ material/0 = SubResource( 5 )
 [node name="Car" parent="helper_z/helper_x/bodyhelper/body" instance=ExtResource( 5 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 
+[node name="Cube2" parent="helper_z/helper_x/bodyhelper/body/Car" index="0"]
+transform = Transform( 100, 0, 0, 0, -4.37114e-06, 106.417, 0, -100, -4.65163e-06, 0, 0.256675, 2.5 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="helper_z/helper_x/bodyhelper/body"]
 autoplay = "bounce"
 anims/bounce = SubResource( 6 )
@@ -86,6 +113,7 @@ transform = Transform( 1, 0, 0, 0, 0.691349, -0.722521, 0, 0.722521, 0.691349, 0
 
 [node name="MeshInstance" type="MeshInstance" parent="helper_z/helper_x/bodyhelper/SpawnGroup/Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
 mesh = SubResource( 7 )
 material/0 = null
 
@@ -96,6 +124,7 @@ transform = Transform( 0.989089, 0.109629, -0.0984102, -0.147016, 0.691655, -0.7
 
 [node name="MeshInstance" type="MeshInstance" parent="helper_z/helper_x/bodyhelper/SpawnGroup/Spatial2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
 mesh = SubResource( 7 )
 material/0 = null
 
@@ -106,6 +135,7 @@ transform = Transform( 0.953379, -0.0913846, -0.287606, -0.147016, 0.691655, -0.
 
 [node name="MeshInstance" type="MeshInstance" parent="helper_z/helper_x/bodyhelper/SpawnGroup/Spatial3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
 mesh = SubResource( 7 )
 material/0 = null
 
@@ -116,6 +146,7 @@ transform = Transform( 0.907423, -0.190202, -0.374709, -0.147016, 0.691655, -0.7
 
 [node name="MeshInstance" type="MeshInstance" parent="helper_z/helper_x/bodyhelper/SpawnGroup/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
 mesh = SubResource( 7 )
 material/0 = null
 
@@ -126,6 +157,7 @@ transform = Transform( 0.978148, 0.207912, 0, -0.147016, 0.691655, -0.707107, -0
 
 [node name="MeshInstance" type="MeshInstance" parent="helper_z/helper_x/bodyhelper/SpawnGroup/Spatial5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
 mesh = SubResource( 7 )
 material/0 = null
 

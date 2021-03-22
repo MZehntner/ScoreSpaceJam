@@ -15,4 +15,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 shape = SubResource( 1 )
 
 [node name="Tree3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
 [connection signal="body_entered" from="." to="." method="_on_tree_body_entered"]
+
+[editable path="Tree3"]

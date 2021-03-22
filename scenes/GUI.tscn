@@ -168,7 +168,6 @@ custom_fonts/font = SubResource( 6 )
 text = "Submit Score"
 
 [node name="notify" type="Label" parent="GameOver/Control"]
-visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -178,8 +177,9 @@ margin_top = -45.0
 margin_right = 100.0
 margin_bottom = -25.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "Error"
 align = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="GameOver/Control"]
 
 [node name="Button" type="Button" parent="GameOver"]
 anchor_top = 1.0
@@ -188,6 +188,9 @@ margin_left = 30.0
 margin_top = -60.0
 margin_right = 120.0
 margin_bottom = -30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="GameOver/Button"]
 anchor_left = 0.5
@@ -224,3 +227,7 @@ margin_bottom = 9.5
 custom_fonts/font = SubResource( 7 )
 text = "Quit"
 align = 1
+[connection signal="pressed" from="GameOver/Control/Button" to="." method="_on_submit_pressed"]
+[connection signal="request_completed" from="GameOver/Control/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="GameOver/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="GameOver/Button2" to="." method="_on_Quit_pressed"]

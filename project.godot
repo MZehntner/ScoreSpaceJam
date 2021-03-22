@@ -8,15 +8,24 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "HBoxContainer",
+"class": "ScoreRow",
+"language": "GDScript",
+"path": "res://items/ScoreRow.gd"
+} ]
 _global_script_class_icons={
-
+"ScoreRow": ""
 }
 
 [application]
 
 config/name="Unfall - ScoreSpaceJam"
 config/icon="res://icon.png"
+
+[autoload]
+
+Firebase="*res://firebase/Firebase.gd"
 
 [input]
 

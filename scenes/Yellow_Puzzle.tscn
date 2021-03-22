@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://material/yellow.tres" type="Material" id=1]
 [ext_resource path="res://scripts/Blue_Puzzle.gd" type="Script" id=2]
 [ext_resource path="res://Models/Puzzle_Pieces/Puzzle1_LP.fbx" type="PackedScene" id=3]
+[ext_resource path="res://Models/Car/CarTextured_yellow.material" type="Material" id=4]
 
 [sub_resource type="CylinderShape" id=1]
 
 [node name="Blue_Puzzle" type="Area"]
 script = ExtResource( 2 )
 color_name = "YELLOW"
-color_material = ExtResource( 1 )
+color_material = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

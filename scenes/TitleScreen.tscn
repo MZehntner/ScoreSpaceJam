@@ -1,0 +1,199 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/tricks/TricksHollow-Italic.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/AusweisHollow.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://items/ScoreRow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/allTrees.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Models/Car/CarTextured.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "planet_rotation"
+length = 25.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Planet:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[node name="TitleScreen" type="Spatial"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+score_row = ExtResource( 4 )
+
+[node name="main" type="Panel" parent="Control"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -200.0
+margin_right = 200.0
+margin_bottom = 200.0
+
+[node name="start" type="Button" parent="Control/main"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -130.0
+margin_top = 50.0
+margin_right = 130.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+
+[node name="leaderboard" type="Button" parent="Control/main"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.0
+margin_top = -18.5
+margin_right = 130.0
+margin_bottom = 18.5
+custom_fonts/font = SubResource( 1 )
+text = "LeaderBoard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="Control/main"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -130.0
+margin_top = -87.0
+margin_right = 130.0
+margin_bottom = -50.0
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Leaderboard" type="Panel" parent="Control"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.588235 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -200.0
+margin_right = 200.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Leaderboard"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -141.5
+margin_top = 10.0
+margin_right = 141.5
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "Top Scores"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Leaderboard"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -180.0
+margin_top = 100.0
+margin_right = 180.0
+margin_bottom = 340.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Leaderboard/VBoxContainer"]
+margin_right = 360.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="Control/Leaderboard/VBoxContainer/HBoxContainer"]
+margin_right = 178.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Player"
+align = 1
+
+[node name="Label2" type="Label" parent="Control/Leaderboard/VBoxContainer/HBoxContainer"]
+margin_left = 182.0
+margin_right = 360.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Score"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="Control/Leaderboard/VBoxContainer"]
+margin_top = 18.0
+margin_right = 360.0
+margin_bottom = 22.0
+
+[node name="Back" type="Button" parent="Control/Leaderboard"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -60.0
+margin_right = 70.0
+margin_bottom = -30.0
+custom_fonts/font = SubResource( 3 )
+text = "Back"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Control"]
+
+[node name="Planet" type="Spatial" parent="."]
+transform = Transform( 0.848763, 0, 0.528774, 0, 1, 0, -0.528774, 0, 0.848763, 0, 0, 0 )
+
+[node name="allTrees" parent="Planet" instance=ExtResource( 6 )]
+
+[node name="Area" parent="Planet" instance=ExtResource( 5 )]
+
+[node name="Car_cleaned" parent="Planet" instance=ExtResource( 7 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 60, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 100, 150, 100 )
+fov = 40.0
+near = 100.0
+far = 250.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "planet_rotation"
+anims/planet_rotation = SubResource( 4 )
+[connection signal="pressed" from="Control/main/start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/main/leaderboard" to="Control" method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="Control/main/quit" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Leaderboard/Back" to="Control" method="_on_Back_pressed"]
+[connection signal="request_completed" from="Control/HTTPRequest" to="Control" method="_on_HTTPRequest_request_completed"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Score Space Jam.wav-d369d6952503fb766803e65b7c4f084d.sample"
+
+[deps]
+
+source_file="res://sounds/Score Space Jam.wav"
+dest_files=[ "res://.import/Score Space Jam.wav-d369d6952503fb766803e65b7c4f084d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
