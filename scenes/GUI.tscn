@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/GUI.gd" type="Script" id=1]
 [ext_resource path="res://fonts/tricks/TricksHollow.ttf" type="DynamicFontData" id=2]
@@ -7,18 +7,21 @@
 [ext_resource path="res://fonts/Iron.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://fonts/tricks/TricksHollow-Italic.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://fonts/SLASHED.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://items/puzzle_icon.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 36
-font_data = ExtResource( 3 )
-
 [sub_resource type="DynamicFont" id=3]
 size = 50
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -51,10 +54,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.6, 1.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 0, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Label:visible")
@@ -68,11 +71,94 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:custom_colors/font_outline_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 1.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -47.8775
+margin_top = 23.9286
+margin_right = -15.8775
+margin_bottom = 55.9286
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TextureRect"]
+texture = ExtResource( 8 )
+centered = false
+hframes = 9
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Streak" type="Label" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -13.7874
+margin_top = -48.2125
+margin_right = 12.2126
+margin_bottom = 50.7875
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Streak" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 315.364
+margin_top = -275.0
+margin_right = 459.364
+margin_bottom = -244.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Streak:"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -90,40 +176,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Streak" type="Label" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -200.0
-margin_top = 25.0
-margin_bottom = 71.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Streak
-"
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Label" type="Label" parent="."]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -125.0
+margin_left = -124.0
 margin_top = -20.0
-margin_right = 125.0
+margin_right = 126.0
 margin_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_pivot_offset = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 125, 20 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 0 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
 text = "SPEEDUP"
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

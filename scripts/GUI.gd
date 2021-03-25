@@ -1,7 +1,8 @@
 extends Control
 
 onready var score_label := $Score
-onready var streak_label := $Streak
+onready var streak_label := $TextureRect/Streak
+onready var streak_frame := $TextureRect/Sprite
 onready var gameOver := $GameOver
 onready var final_score := 0
 
@@ -18,7 +19,10 @@ func set_score(num: int):
 	score_label.text = "Score: %s" % num
 
 func set_streak(num: int):
-	streak_label.text = "Streak: %s" % num
+	streak_label.text = "%s" % num
+
+func set_frame(frame: int):
+	streak_frame.frame = frame
 
 func show_gameOver(score: int):
 	final_score = score

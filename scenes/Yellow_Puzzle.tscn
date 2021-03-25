@@ -1,11 +1,58 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://material/yellow.tres" type="Material" id=1]
 [ext_resource path="res://scripts/Blue_Puzzle.gd" type="Script" id=2]
 [ext_resource path="res://Models/Puzzle_Pieces/Puzzle1_LP.fbx" type="PackedScene" id=3]
 [ext_resource path="res://Models/Car/CarTextured_yellow.material" type="Material" id=4]
+[ext_resource path="res://material/Yellow_Puzzle.material" type="Material" id=5]
+[ext_resource path="res://scripts/material.gd" type="Script" id=6]
 
 [sub_resource type="CylinderShape" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "puzzle_fade_out"
+length = 20.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 15, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_prepare_fade_out"
+}, {
+"args": [  ],
+"method": "_on_Timer_timeout"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Puzzle1_LP/Body2003:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Puzzle1_LP2/Body2003:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="Blue_Puzzle" type="Area"]
 script = ExtResource( 2 )
@@ -19,18 +66,26 @@ shape = SubResource( 1 )
 [node name="Puzzle1_LP" parent="." instance=ExtResource( 3 )]
 
 [node name="Body2003" parent="Puzzle1_LP" index="0"]
-transform = Transform( -0.000119209, -9.73536e-05, -500, 500, 3.7749e-05, -0.000119209, 3.7749e-05, -500, 9.73536e-05, 0, -1.5, -0.35 )
+transform = Transform( -0.000119209, -9.73536e-05, -500, 500, 3.7749e-05, -0.000119209, 3.7749e-05, -500, 9.73536e-05, 0, -1, -0.35 )
+visible = false
 material/0 = ExtResource( 1 )
+
+[node name="Puzzle1_LP2" parent="." instance=ExtResource( 3 )]
+
+[node name="Body2003" parent="Puzzle1_LP2" index="0"]
+transform = Transform( -0.000119209, -9.73536e-05, -500, 500, 3.7749e-05, -0.000119209, 3.7749e-05, -500, 9.73536e-05, 0, -1, -0.35 )
+material/0 = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
 repeat = true
 playback/repeat = true
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 15.0
-one_shot = true
-autostart = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "puzzle_fade_out"
+anims/puzzle_fade_out = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Puzzle_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Puzzle1_LP"]
+
+[editable path="Puzzle1_LP2"]

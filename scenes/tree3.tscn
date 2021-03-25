@@ -4,7 +4,7 @@
 [ext_resource path="res://Models/Trees/Tree1Textured.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CylinderShape" id=1]
-radius = 1.2
+radius = 0.7
 height = 4.0
 
 [node name="tree" type="Area"]

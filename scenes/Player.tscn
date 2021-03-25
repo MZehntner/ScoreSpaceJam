@@ -148,7 +148,7 @@ anims/bounce = SubResource( 6 )
 [node name="Camera" type="Camera" parent="helper_z/helper_x/bodyhelper"]
 transform = Transform( -1, -1.67821e-07, 2.793e-07, 2.98433e-08, 0.806393, 0.59138, -3.24471e-07, 0.59138, -0.806393, 0, 7.95048, -5.02149 )
 environment = SubResource( 7 )
-size = 10.0
+size = 12.0
 
 [node name="Sprite3D" type="Sprite3D" parent="helper_z/helper_x/bodyhelper/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17701e-07, 0.344108, -0.572691 )
