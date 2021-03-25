@@ -28,6 +28,11 @@ config/icon="res://icon.png"
 
 Firebase="*res://firebase/Firebase.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [input]
 
 move_left={
