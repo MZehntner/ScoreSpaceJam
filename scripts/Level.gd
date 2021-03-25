@@ -1,7 +1,7 @@
 extends Spatial
 
 onready var gui := $GUI
-var score := 0
+var score := 0 setget set_score
 var streak := 0
 
 var body
@@ -38,17 +38,19 @@ func _ready() -> void:
 	player = get_node("player")
 	player.connect("speed_up", self, "_on_speed_up")
 
+func set_score(new_score):
+	score = new_score
+	gui.set_score(score)
+
 func _on_collect(changed: bool) -> void:
 	if changed:
 		if streak >0:
-			score += pow(2,streak-1)
-			gui.set_score(score) 
+			set_score(score + pow(2,streak-1))
 		streak = 0
 	else:
 		streak +=1
 		if streak >= 8:
-			score += pow(2,streak-1)
-			gui.set_score(score)
+			set_score(score + pow(2,streak-1))
 			streak = 0
 			body.set_default_color()
 	gui.set_streak(streak)
@@ -76,6 +78,8 @@ func _spawn_item() -> void:
 	add_child(instance)
 
 func _on_body_tree_exited():
+	if streak > 0:
+		set_score(score + pow(2,streak-1))
 	gui.show_gameOver(score)
 
 func _on_speed_up() -> void:
