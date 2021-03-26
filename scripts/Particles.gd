@@ -1,4 +1,4 @@
-extends Particles
+extends CPUParticles
 
 func _ready():
 	emitting = true

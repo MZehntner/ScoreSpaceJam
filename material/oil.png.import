@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/oil.png-01f7d6c51c1b5f4acc2e65596872c12c.s3tc.stex"
 path.etc2="res://.import/oil.png-01f7d6c51c1b5f4acc2e65596872c12c.etc2.stex"
+path.etc="res://.import/oil.png-01f7d6c51c1b5f4acc2e65596872c12c.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://material/oil.png"
-dest_files=[ "res://.import/oil.png-01f7d6c51c1b5f4acc2e65596872c12c.s3tc.stex", "res://.import/oil.png-01f7d6c51c1b5f4acc2e65596872c12c.etc2.stex" ]
+dest_files=[ "res://.import/oil.png-01f7d6c51c1b5f4acc2e65596872c12c.s3tc.stex", "res://.import/oil.png-01f7d6c51c1b5f4acc2e65596872c12c.etc2.stex", "res://.import/oil.png-01f7d6c51c1b5f4acc2e65596872c12c.etc.stex" ]
 
 [params]
 

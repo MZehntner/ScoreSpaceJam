@@ -20,7 +20,12 @@ func _ready():
 	$helper_z/helper_x/bodyhelper/body.connect("rocket", self, "_set_tmp_speed")
 
 func _process(delta) -> void:
-	var steer_tmp = helper_x.transform.rotated(helper_x.transform.basis.y.normalized(), Input.get_action_strength("move_right")*(-steer*delta) -Input.get_action_strength("move_left")*(-steer*delta))
+	var dir
+	if Input.get_accelerometer().normalized().x!=0:
+		dir = min(Input.get_accelerometer().normalized().x/0.3,1) * (-steer*delta)
+	else:
+		dir = Input.get_action_strength("move_right")*(-steer*delta) -Input.get_action_strength("move_left")*(-steer*delta)
+	var steer_tmp = helper_x.transform.rotated(helper_x.transform.basis.y.normalized(), dir)
 	helper_x.set_transform(steer_tmp)
 	tmp_speed = max(tmp_speed - (delta*0.1),0.0)
 	var tmp = helper_x.transform.rotated(helper_x.transform.basis.x.normalized(), (speed + tmp_speed) * delta)

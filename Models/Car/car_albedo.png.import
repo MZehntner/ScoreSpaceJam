@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/car_albedo.png-01ad40bed1b3fb6a16b72fe8d626b6b9.s3tc.stex"
 path.etc2="res://.import/car_albedo.png-01ad40bed1b3fb6a16b72fe8d626b6b9.etc2.stex"
+path.etc="res://.import/car_albedo.png-01ad40bed1b3fb6a16b72fe8d626b6b9.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Car/car_albedo.png"
-dest_files=[ "res://.import/car_albedo.png-01ad40bed1b3fb6a16b72fe8d626b6b9.s3tc.stex", "res://.import/car_albedo.png-01ad40bed1b3fb6a16b72fe8d626b6b9.etc2.stex" ]
+dest_files=[ "res://.import/car_albedo.png-01ad40bed1b3fb6a16b72fe8d626b6b9.s3tc.stex", "res://.import/car_albedo.png-01ad40bed1b3fb6a16b72fe8d626b6b9.etc2.stex", "res://.import/car_albedo.png-01ad40bed1b3fb6a16b72fe8d626b6b9.etc.stex" ]
 
 [params]
 

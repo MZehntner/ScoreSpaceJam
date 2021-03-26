@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/car_metrough.png-17898e5018de0121ba2c5fbe74c99c06.s3tc.stex"
 path.etc2="res://.import/car_metrough.png-17898e5018de0121ba2c5fbe74c99c06.etc2.stex"
+path.etc="res://.import/car_metrough.png-17898e5018de0121ba2c5fbe74c99c06.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Car/car_metrough.png"
-dest_files=[ "res://.import/car_metrough.png-17898e5018de0121ba2c5fbe74c99c06.s3tc.stex", "res://.import/car_metrough.png-17898e5018de0121ba2c5fbe74c99c06.etc2.stex" ]
+dest_files=[ "res://.import/car_metrough.png-17898e5018de0121ba2c5fbe74c99c06.s3tc.stex", "res://.import/car_metrough.png-17898e5018de0121ba2c5fbe74c99c06.etc2.stex", "res://.import/car_metrough.png-17898e5018de0121ba2c5fbe74c99c06.etc.stex" ]
 
 [params]
 
