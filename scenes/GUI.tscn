@@ -9,11 +9,11 @@
 [ext_resource path="res://fonts/SLASHED.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://items/puzzle_icon.png" type="Texture" id=8]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 36
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
@@ -132,7 +132,7 @@ margin_left = -13.7874
 margin_top = -48.2125
 margin_right = 12.2126
 margin_bottom = 50.7875
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -152,7 +152,7 @@ margin_left = 315.364
 margin_top = -275.0
 margin_right = 459.364
 margin_bottom = -244.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Streak:"
 align = 1
@@ -168,7 +168,7 @@ margin_left = 25.0
 margin_top = 25.0
 margin_right = 113.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Score: 0"
 uppercase = true
@@ -283,7 +283,6 @@ margin_left = -80.0
 margin_top = -105.0
 margin_right = 80.0
 margin_bottom = -75.0
-disabled = true
 
 [node name="Label" type="Label" parent="GameOver/Control/Button"]
 anchor_left = 0.5

@@ -1,11 +1,11 @@
 extends Spatial
 
-var angle := 15
+var angle := 10
 var time := 0.5
 var duration := 0.5
 
 func _physics_process(delta) -> void:
-	if($body != null):
+	if(get_node_or_null("body") != null):
 		if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 			time = 0.0
 		if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") or Input.get_accelerometer().normalized().x != 0:
