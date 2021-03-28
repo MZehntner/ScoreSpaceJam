@@ -26,6 +26,8 @@ func _process(delta) -> void:
 			dir = min(Input.get_accelerometer().normalized().x/0.3,1) * (-steer*delta)
 		else:
 			dir = Input.get_action_strength("move_right")*(-steer*delta) -Input.get_action_strength("move_left")*(-steer*delta)
+		if dir == 0.0:
+			dir = -0.01*(-steer*delta)
 		var steer_tmp = helper_x.transform.rotated(helper_x.transform.basis.y.normalized(), dir)
 		helper_x.set_transform(steer_tmp)
 		tmp_speed = max(tmp_speed - (delta*0.1),0.0)
