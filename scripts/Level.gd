@@ -50,12 +50,13 @@ func _on_collect(changed: bool) -> void:
 		gui.set_frame(1)
 	else:
 		streak +=1
-		gui.set_frame(streak+1)
 		if streak >= 8:
 			set_score(score + pow(2,streak-1))
 			streak = 0
 			body.set_default_color()
 			gui.set_frame(streak)
+		else:
+			gui.set_frame(streak+1)
 	gui.set_streak(streak)
 
 func _spawn_puzzle() -> void:

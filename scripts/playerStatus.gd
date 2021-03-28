@@ -10,16 +10,22 @@ signal rocket()
 
 func on_puzzle_collect(p_color: String, material: Material) -> void:
 	if(p_color != color):
+		if(color != "WHITE"):
+			$break.play()
+		else:
+			$pickup.play()
 		color = p_color
 		_set_material(material)
 		emit_signal("puzzle_collected", true)
 	else:
+		$pickup.play()
 		emit_signal("puzzle_collected", false)
 
 func _set_material(material: Material) -> void:
 	mesh.set_surface_material(0, material)
 
 func set_default_color():
+	$streak.play()
 	color = "WHITE"
 	mesh.set_surface_material(0,default_color)
 

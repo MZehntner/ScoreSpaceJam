@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/bodyTilt.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Models/Car/CarTextured.material" type="Material" id=4]
 [ext_resource path="res://Models/Car/CarTextured.tscn" type="PackedScene" id=5]
 [ext_resource path="res://material/oil.png" type="Texture" id=6]
+[ext_resource path="res://sounds/pickup.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/break.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/streak.wav" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.447496
@@ -131,6 +134,18 @@ transform = Transform( 100, 0, 0, 0, -4.37114e-06, 106.417, 0, -100, -4.65163e-0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="helper_z/helper_x/bodyhelper/body"]
 autoplay = "bounce"
 anims/bounce = SubResource( 4 )
+
+[node name="pickup" type="AudioStreamPlayer" parent="helper_z/helper_x/bodyhelper/body"]
+stream = ExtResource( 7 )
+volume_db = -30.0
+
+[node name="break" type="AudioStreamPlayer" parent="helper_z/helper_x/bodyhelper/body"]
+stream = ExtResource( 8 )
+volume_db = -20.0
+
+[node name="streak" type="AudioStreamPlayer" parent="helper_z/helper_x/bodyhelper/body"]
+stream = ExtResource( 9 )
+volume_db = -20.0
 
 [node name="Camera" type="Camera" parent="helper_z/helper_x/bodyhelper"]
 transform = Transform( -1, -1.67821e-07, 2.793e-07, 2.98433e-08, 0.806393, 0.59138, -3.24471e-07, 0.59138, -0.806393, 0, 7.95048, -5.02149 )
